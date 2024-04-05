@@ -172,9 +172,8 @@ const MonthComponent: React.FC<Props> = ({ formState }) => {
     }
   };
 
-  const [relatorioAnual, setRelatorioAnual] = useState<RelatorioAnual>({
-    formState: formState,
-  });
+  const [relatorioAnual, setRelatorioAnual] =
+    useState<RelatorioAnual>(formState);
 
   const save = (): void => {
     // Verifica se os valores são NaN e os define como 0.0
@@ -203,6 +202,7 @@ const MonthComponent: React.FC<Props> = ({ formState }) => {
     };
 
     formState.meses = [...formState.meses, mesData];
+
     setRelatorioAnual((prevRelatorio) => ({
       ...prevRelatorio,
     }));

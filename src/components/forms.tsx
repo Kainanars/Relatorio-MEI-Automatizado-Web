@@ -63,13 +63,18 @@ export default function Formulario() {
   };
 
   const handleInputChange = (
-    event: React.ChangeEvent<HTMLInputElement>,
-    type: string
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+    name: string
   ) => {
-    setFormState({
-      ...formState,
-      [type]: event.target.value,
-    });
+    if (e.target instanceof HTMLInputElement) {
+      // Se o elemento for um HTMLInputElement
+      const value = e.target.value;
+      // Faça o que for necessário com o valor
+      setFormState({
+        ...formState,
+        [name]: value,
+      });
+    }
   };
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
