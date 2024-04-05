@@ -1,0 +1,70 @@
+{
+  "meses": [
+    {
+      "mes": 1,
+      "periodo": "01/01/2023 à 31/01/2023",
+      "comercio": {
+        "comNota": "0.00",
+        "semNota": "0.00",
+        "total": "0.00"
+      },
+      "industria": {
+        "comNota": "0.00",
+        "semNota": "0.00",
+        "total": "0.00"
+      },
+      "servico": {
+        "comNota": "0.00",
+        "semNota": "0.00",
+        "total": "0.00"
+      },
+      "total": "0.00"
+    },
+    {
+      "mes": 2,
+      "periodo": "01/02/2023 à 28/02/2023",
+      "comercio": {
+        "comNota": "0.00",
+        "semNota": "0.00",
+        "total": "0.00"
+      },
+      "industria": {
+        "comNota": "0.00",
+        "semNota": "0.00",
+        "total": "0.00"
+      },
+      "servico": {
+        "comNota": "0.00",
+        "semNota": "0.00",
+        "total": "0.00"
+      },
+      "total": "0.00"
+    },
+    {
+      "mes": 3,
+      "periodo": "01/03/2023 à 31/03/2023",
+      "comercio": {
+        "comNota": "0.00",
+        "semNota": "0.00",
+        "total": "0.00"
+      },
+      "industria": {
+        "comNota": "0.00",
+        "semNota": "0.00",
+        "total": "0.00"
+      },
+      "servico": {
+        "comNota": "0.00",
+        "semNota": "0.00",
+        "total": "0.00"
+      },
+      "total": "0.00"
+    }
+  ],
+  "cnpj": "11.064.624/0001-99",
+  "razaoSocial": "LC Contabil",
+  "atividadeAnoCompleto": false,
+  "dataInicio": "2023-01-01",
+  "dataFim": "2023-03-31",
+  "atividadesSelecionadas": []
+}

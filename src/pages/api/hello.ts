@@ -1,13 +1,28 @@
-// Next.js API route support: https://nextjs.org/docs/api-routes/introduction
-import type { NextApiRequest, NextApiResponse } from "next";
+// Next.js API route: /api/hello
 
-type Data = {
-  name: string;
-};
+import fs from 'fs';
+import path from 'path';
+import type { NextApiRequest, NextApiResponse } from 'next';
+import FormState from '@/components/interface';
+import gerarRelatorio from './generateDoc';
 
 export default function handler(
   req: NextApiRequest,
-  res: NextApiResponse<Data>,
+  res: NextApiResponse
 ) {
-  res.status(200).json({ name: "John Doe" });
+  if (req.method === 'POST') {
+    const dados: FormState = req.body;
+
+    // Gere os relatórios
+    gerarRelatorio(dados);
+
+    // Atualize o arquivo JSON com os dados recebidos
+    const filePath = path.join(process.cwd(), 'public', 'formState.json');
+    fs.writeFileSync(filePath, JSON.stringify(dados, null, 2));
+
+    // Envie a resposta ao cliente
+    res.status(200).json({ message: 'Relatórios gerados e arquivo JSON atualizado com sucesso.' });
+  } else {
+    res.status(405).json({ error: 'Método não permitido' });
+  }
 }

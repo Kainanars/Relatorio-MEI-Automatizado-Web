@@ -9,16 +9,43 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@emotion/react": "^11.11.4",
+    "@emotion/styled": "^11.11.0",
+    "@ilovepdf/ilovepdf-nodejs": "^0.2.5",
+    "@mui/lab": "^5.0.0-alpha.169",
+    "@mui/material": "^5.15.14",
+    "@mui/x-date-pickers": "^6.19.8",
+    "axios": "^1.6.8",
+    "axios-retry": "^4.1.0",
+    "cloudmersive-validate-api-client": "^1.4.8",
+    "date-fns": "^3.6.0",
+    "docx": "^8.5.0",
+    "docx-merger": "^1.2.2",
+    "docx-pdf": "^0.0.1",
+    "docxtemplater": "^3.46.1",
+    "electron": "^29.1.5",
+    "fs": "^0.0.1-security",
+    "googleapis": "^134.0.0",
+    "jszip": "^3.10.1",
+    "libreoffice-convert": "^1.5.1",
+    "luxon": "^3.4.4",
+    "mammoth": "^1.7.1",
+    "next": "14.1.4",
+    "office-converter": "^1.0.2",
+    "office-to-pdf": "^4.0.0",
+    "pdf-lib": "^1.17.1",
+    "pdf-merger-js": "^5.1.1",
+    "pizzip": "^3.1.6",
     "react": "^18",
     "react-dom": "^18",
-    "next": "14.1.4"
+    "rimraf": "^5.0.5"
   },
   "devDependencies": {
-    "typescript": "^5",
     "@types/node": "^20",
     "@types/react": "^18",
     "@types/react-dom": "^18",
     "eslint": "^8",
-    "eslint-config-next": "14.1.4"
+    "eslint-config-next": "14.1.4",
+    "typescript": "^5"
   }
 }

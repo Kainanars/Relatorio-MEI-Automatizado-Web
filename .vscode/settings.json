@@ -1,0 +1,6 @@
+{
+    "python.analysis.extraPaths": [
+        "./src/pages/api/merge_",
+        "./src/pages/api/merge_"
+    ]
+}
