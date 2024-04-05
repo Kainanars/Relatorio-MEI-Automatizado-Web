@@ -66,10 +66,11 @@ export default function Formulario() {
     e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     name: string
   ) => {
-    if (e.target instanceof HTMLInputElement) {
-      // Se o elemento for um HTMLInputElement
+    if (
+      e.target instanceof HTMLInputElement ||
+      e.target instanceof HTMLTextAreaElement
+    ) {
       const value = e.target.value;
-      // Faça o que for necessário com o valor
       setFormState({
         ...formState,
         [name]: value,
