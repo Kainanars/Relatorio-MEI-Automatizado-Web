@@ -1,5 +1,4 @@
-import React from "react";
-import { useState } from "react";
+import React, { useState } from "react";
 import {
   Box,
   TextField,
@@ -22,7 +21,7 @@ const theme = createTheme(
       primary: { main: "#1976d2" },
     },
   },
-  deDE // use 'de' locale for UI texts (start, next month, ...)
+  deDE
 );
 
 export default function Formulario() {
@@ -47,32 +46,25 @@ export default function Formulario() {
 
   const handleCheckboxChange = (event: React.ChangeEvent<HTMLInputElement>) => {
     const { value, checked } = event.target;
-    if (checked) {
-      setFormState({
-        ...formState,
-        atividadesSelecionadas: [...formState.atividadesSelecionadas, value],
-      });
-    } else {
-      setFormState({
-        ...formState,
-        atividadesSelecionadas: formState.atividadesSelecionadas.filter(
-          (atividade) => atividade !== value
-        ),
-      });
-    }
+    setFormState((prevState) => ({
+      ...prevState,
+      atividadesSelecionadas: checked
+        ? [...prevState.atividadesSelecionadas, value]
+        : prevState.atividadesSelecionadas.filter(
+            (atividade) => atividade !== value
+          ),
+    }));
   };
 
   function handleInputChange(
-    e: React.ChangeEvent<HTMLInputElement>,
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
     name: string
   ) {
-    if (e.target instanceof HTMLInputElement) {
-      const value = e.target.value;
-      setFormState({
-        ...formState,
-        [name]: value,
-      });
-    }
+    const { value } = e.target;
+    setFormState({
+      ...formState,
+      [name]: value,
+    });
   }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
@@ -129,7 +121,7 @@ export default function Formulario() {
                   padding: "20px",
                   borderRadius: "8px",
                   boxShadow: "0px 4px 8px rgba(0, 0, 0, 0.1)",
-                  textAlign: "center", // centralizar conteúdo
+                  textAlign: "center",
                 }}
               >
                 <FormControl fullWidth>
@@ -137,19 +129,19 @@ export default function Formulario() {
                     label="CNPJ"
                     fullWidth
                     value={formState.cnpj}
-                    sx={{ marginTop: "20px" }} // Adiciona margem superior
+                    sx={{ marginTop: "20px" }}
                     onChange={(e) => handleInputChange(e, "cnpj")}
                   />
                   <TextField
                     label="Razão Social"
                     fullWidth
                     value={formState.razaoSocial}
-                    sx={{ marginTop: "20px" }} // Adiciona margem superior
+                    sx={{ marginTop: "20px" }}
                     onChange={(e) => handleInputChange(e, "razaoSocial")}
                   />
                   <FormGroup>
                     <FormControlLabel
-                      sx={{ marginTop: "20px" }} // Adiciona margem superior
+                      sx={{ marginTop: "20px" }}
                       control={
                         <Checkbox
                           checked={formState.atividadeAnoCompleto}
@@ -165,10 +157,7 @@ export default function Formulario() {
                     />
                     {dataInputs}
                   </FormGroup>
-                  <FormControl
-                    component="fieldset"
-                    sx={{ marginTop: "20px" }} // Adiciona margem superior
-                  >
+                  <FormControl component="fieldset" sx={{ marginTop: "20px" }}>
                     <legend>Escolha as atividades:</legend>
                     <FormGroup>
                       <FormControlLabel
@@ -179,7 +168,7 @@ export default function Formulario() {
                           />
                         }
                         label="Comércio"
-                        sx={{ marginTop: "20px" }} // Adiciona margem superior
+                        sx={{ marginTop: "20px" }}
                       />
                       <FormControlLabel
                         control={
@@ -206,7 +195,7 @@ export default function Formulario() {
                   type="submit"
                   variant="contained"
                   color="primary"
-                  sx={{ marginTop: "20px" }} // Adiciona margem superior
+                  sx={{ marginTop: "20px" }}
                 >
                   Avançar
                 </Button>
