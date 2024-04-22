@@ -14,7 +14,6 @@ const saveFilesAndProgressToJson = (files: string[], progress: number) => {
 
   try {
     fs.writeFileSync(filePath, jsonData);
-    console.log("Progresso e caminhos dos arquivos salvos com sucesso.");
   } catch (error) {
     console.error("Erro ao salvar progresso e caminhos dos arquivos:", error);
   }
@@ -60,8 +59,7 @@ const gerarRelatorio = async (dados: FormState) => {
       `public/output${mes.mes}.docx`
     );
     fs.writeFileSync(outRelatorioPath, mergedContent);
-    // Aqui assumimos que a conversão para PDF é feita em outro lugar
-    const caminhoRelativo = `/output${mes.mes}.docx`; // A conversão para PDF deve refletir esta mudança
+    const caminhoRelativo = `/output${mes.mes}.docx`;
     docs.push(caminhoRelativo);
     progressTotal += (1 / totalDocs) * 100;
 

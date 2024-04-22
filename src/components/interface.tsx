@@ -13,21 +13,21 @@ interface Mes {
   mes: number;
   periodo: string;
   comercio: {
-    comNota: number;
-    semNota: number;
-    total: number;
+    comNota: string;
+    semNota: string;
+    total: string;
   };
   industria: {
-    comNota: number;
-    semNota: number;
-    total: number;
+    comNota: string;
+    semNota: string;
+    total: string;
   };
   servico: {
-    comNota: number;
-    semNota: number;
-    total: number;
+    comNota: string;
+    semNota: string;
+    total: string;
   };
-  total: number;
+  total: string;
 }
 
 interface RelatorioAnual {
