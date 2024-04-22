@@ -4,29 +4,29 @@
       "mes": 1,
       "periodo": "01/01/2023 à 31/01/2023",
       "comercio": {
-        "comNota": "0.00",
-        "semNota": "1000.00",
-        "total": "1000.00"
+        "comNota": "42.00",
+        "semNota": "42.00",
+        "total": "84.00"
       },
       "industria": {
-        "comNota": "0.00",
-        "semNota": "0.00",
-        "total": "0.00"
+        "comNota": "41.00",
+        "semNota": "41.00",
+        "total": "82.00"
       },
       "servico": {
-        "comNota": "0.00",
-        "semNota": "0.00",
-        "total": "0.00"
+        "comNota": "1.00",
+        "semNota": "1.00",
+        "total": "2.00"
       },
-      "total": "1000.00"
+      "total": "168.00"
     },
     {
       "mes": 2,
       "periodo": "01/02/2023 à 28/02/2023",
       "comercio": {
         "comNota": "0.00",
-        "semNota": "2000.00",
-        "total": "2000.00"
+        "semNota": "0.00",
+        "total": "0.00"
       },
       "industria": {
         "comNota": "0.00",
@@ -38,15 +38,15 @@
         "semNota": "0.00",
         "total": "0.00"
       },
-      "total": "2000.00"
+      "total": "0.00"
     },
     {
       "mes": 3,
       "periodo": "01/03/2023 à 31/03/2023",
       "comercio": {
-        "comNota": "3000.00",
+        "comNota": "0.00",
         "semNota": "0.00",
-        "total": "3000.00"
+        "total": "0.00"
       },
       "industria": {
         "comNota": "0.00",
@@ -58,15 +58,17 @@
         "semNota": "0.00",
         "total": "0.00"
       },
-      "total": "3000.00"
+      "total": "0.00"
     }
   ],
-  "cnpj": "1106462000199",
+  "cnpj": "312",
   "razaoSocial": "LC Contabil",
   "atividadeAnoCompleto": false,
   "dataInicio": "2023-01-01",
   "dataFim": "2023-03-31",
   "atividadesSelecionadas": [
+    "Indústria",
+    "Serviço",
     "Comércio"
   ]
 }

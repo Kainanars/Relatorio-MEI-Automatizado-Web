@@ -62,21 +62,18 @@ export default function Formulario() {
     }
   };
 
-  const handleInputChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+  function handleInputChange(
+    e: React.ChangeEvent<HTMLInputElement>,
     name: string
-  ) => {
-    if (
-      e.target instanceof HTMLInputElement ||
-      e.target instanceof HTMLTextAreaElement
-    ) {
+  ) {
+    if (e.target instanceof HTMLInputElement) {
       const value = e.target.value;
       setFormState({
         ...formState,
         [name]: value,
       });
     }
-  };
+  }
 
   const handleSubmit = (event: React.FormEvent<HTMLFormElement>) => {
     event.preventDefault();
