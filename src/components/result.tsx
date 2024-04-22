@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
-import { Box, Button, List, ListItem } from "@mui/material";
+import { Box, Button } from "@mui/material";
 import JSZip from "jszip";
+import FormState from "./interface";
 
 interface FilesAndProgress {
   files: string[];
@@ -8,7 +9,7 @@ interface FilesAndProgress {
 }
 
 function ResultComponent() {
-  const [jsonData, setJsonData] = useState(null);
+  const [jsonData, setJsonData] = useState<FormState | null>(null);
   const [filesAndProgress, setFilesAndProgress] = useState<FilesAndProgress>({
     files: [],
     progress: 0,
@@ -84,7 +85,10 @@ function ResultComponent() {
     // Cria um link para download do arquivo zip
     const link = document.createElement("a");
     link.href = URL.createObjectURL(content);
-    link.download = `${jsonData.razaoSocial} - ${jsonData.cnpj}.zip`;
+    if (jsonData && jsonData.razaoSocial != null && jsonData.cnpj != null) {
+      link.download = `${jsonData.razaoSocial} - ${jsonData.cnpj}.zip`;
+    }
+
     document.body.appendChild(link);
     link.click();
     document.body.removeChild(link);
