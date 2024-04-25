@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Box, Button } from "@mui/material";
 import JSZip from "jszip";
 import FormState from "./interface";
+import path from "path";
 
 interface FilesAndProgress {
   files: string[];
@@ -28,14 +29,21 @@ function ResultComponent() {
       }
     };
 
-    const intervalId = setInterval(() => {
-      fetchFilesAndProgress();
-    }, 1000); // Atualiza a cada 5 segundos
+    let intervalId: string | number | NodeJS.Timeout | undefined;
 
-    fetchFilesAndProgress(); // Também faz a busca imediatamente
+    const checkProgress = async () => {
+      await fetchFilesAndProgress();
+      if (filesAndProgress.progress === 100) {
+        clearInterval(intervalId);
+      }
+    };
 
-    return () => clearInterval(intervalId); // Limpa o intervalo ao desmontar o componente
-  }, []);
+    intervalId = setInterval(checkProgress, 1000);
+
+    checkProgress();
+
+    return () => clearInterval(intervalId);
+  }, [filesAndProgress.progress]);
 
   useEffect(() => {
     const fetchJsonData = async () => {
@@ -67,9 +75,20 @@ function ResultComponent() {
     const zip = new JSZip();
 
     // Cria um array de promessas para cada solicitação fetch
-    const promises = filesAndProgress.files.map((file) =>
-      fetch(file).then((response) => response.blob())
-    );
+    const promises = filesAndProgress.files.map(async (file) => {
+      const relatorio = path.resolve(
+        __dirname,
+        "..",
+        "..",
+        "..",
+        "..",
+        "..",
+        file
+      );
+      console.log("Caminho do arquivo:", relatorio); // Adiciona um console.log para verificar o caminho do arquivo
+      const response = await fetch(relatorio);
+      return await response.blob();
+    });
 
     // Espera que todas as promessas sejam resolvidas
     await Promise.all(promises).then((blobs) => {

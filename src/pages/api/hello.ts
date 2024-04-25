@@ -16,8 +16,8 @@ export default function handler(
     // Gere os relatórios
     gerarRelatorio(dados);
 
-    // Atualize o arquivo JSON com os dados recebidos
-    const filePath = path.join(process.cwd(), 'public', 'formState.json');
+    const filePath = path.resolve(__dirname, '../../../../', 'models', 'formState.json');
+    // Escreva os dados no arquivo JSON
     fs.writeFileSync(filePath, JSON.stringify(dados, null, 2));
 
     // Envie a resposta ao cliente

@@ -10,7 +10,12 @@ const saveFilesAndProgressToJson = (files: string[], progress: number) => {
     progress,
   };
   const jsonData = JSON.stringify(data, null, 2);
-  const filePath = path.join(process.cwd(), "public", "filesAndProgress.json");
+  const filePath = path.resolve(
+    __dirname,
+    "../../../../",
+    "models",
+    "filesAndProgress.json"
+  );
 
   try {
     fs.writeFileSync(filePath, jsonData);
@@ -20,8 +25,13 @@ const saveFilesAndProgressToJson = (files: string[], progress: number) => {
 };
 
 const gerarRelatorio = async (dados: FormState) => {
-  const relatorioPath = path.resolve(process.cwd(), "public/RELATORIO.docx");
-  const outputPath = path.resolve(process.cwd(), "public/output.docx");
+  const relatorioPath = path.resolve(
+    __dirname,
+    "../../../../",
+    "models",
+    "RELATORIO.docx"
+  );
+
   const docs: string[] = [];
 
   const totalDocs = dados.meses.length;
@@ -55,11 +65,15 @@ const gerarRelatorio = async (dados: FormState) => {
       .getZip()
       .generate({ type: "nodebuffer", compression: "DEFLATE" });
     const outRelatorioPath = path.resolve(
-      process.cwd(),
-      `public/output${mes.mes}.docx`
+      __dirname,
+      "../../../../",
+      "public",
+      "outputFiles",
+      `output${mes.mes}.docx`
     );
+
     fs.writeFileSync(outRelatorioPath, mergedContent);
-    const caminhoRelativo = `/output${mes.mes}.docx`;
+    const caminhoRelativo = `/outputFiles/output${mes.mes}.docx`;
     docs.push(caminhoRelativo);
     progressTotal += (1 / totalDocs) * 100;
 

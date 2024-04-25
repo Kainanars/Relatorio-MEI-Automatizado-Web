@@ -6,8 +6,9 @@ export default function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     // Caminho para o arquivo JSON
     const filePath = path.resolve(
-      process.cwd(),
-      "public",
+      __dirname,
+      "../../../../",
+      "models",
       "filesAndProgress.json"
     );
 
