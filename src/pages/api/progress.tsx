@@ -5,12 +5,7 @@ import type { NextApiRequest, NextApiResponse } from "next";
 export default function handler(req: NextApiRequest, res: NextApiResponse) {
   try {
     // Caminho para o arquivo JSON
-    const filePath = path.resolve(
-      __dirname,
-      "../../../../",
-      "models",
-      "filesAndProgress.json"
-    );
+    const filePath = path.resolve(__dirname, "models", "filesAndProgress.json");
 
     // Leia o arquivo JSON
     const jsonData = fs.readFileSync(filePath, "utf-8");

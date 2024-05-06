@@ -66,7 +66,6 @@ const gerarRelatorio = async (dados: FormState) => {
       .generate({ type: "nodebuffer", compression: "DEFLATE" });
     const outRelatorioPath = path.resolve(
       __dirname,
-      "../../../../",
       "public",
       "outputFiles",
       `output${mes.mes}.docx`
